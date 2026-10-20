@@ -16,7 +16,7 @@ header h1 small{display:block;font-size:14px;font-weight:800;color:var(--indigo)
 .meta{display:flex;justify-content:center;flex-wrap:wrap;margin-top:14px}
 .meta span{font-size:15px;font-weight:700;color:var(--sub)}
 .meta span+span::before{content:'·';margin:0 12px;color:#c3c8d6;font-weight:900}
-.meta span:last-child{color:var(--indigo)}
+
 
 /* 탭: 밑줄 탭, 스크롤해도 위에 붙음 */
 .tabbar{position:sticky;top:0;z-index:5;background:#ffffffee;backdrop-filter:blur(6px);border-bottom:1px solid var(--line)}
