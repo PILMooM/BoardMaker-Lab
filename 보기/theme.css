@@ -83,6 +83,8 @@ button.card.go:hover{background:var(--soft)}
 .cstep .cpic{aspect-ratio:4/3;border-radius:12px;overflow:hidden;background:#f6f3ec}
 .cstep .cpic img{width:100%;height:100%;object-fit:cover;display:block}
 .ino{display:inline-grid;place-items:center;width:38px;height:38px;border-radius:50%;background:var(--indigo-soft);color:var(--indigo);font-weight:900;font-size:14px;align-self:flex-start}
+.cstep .ctop{display:flex;align-items:center;gap:12px}
+.cstep .ctop .ino{align-self:center;flex:none}
 .cstep h3{margin:0}.cstep p{margin:0;font-size:14.5px;color:var(--sub)}
 .cstep .box{margin-top:auto}
 @media(max-width:1100px){.common{grid-template-columns:repeat(auto-fill,minmax(220px,1fr))}.order{grid-template-columns:1fr 1fr}}
@@ -104,7 +106,12 @@ table.setup td:first-child{font-weight:900;color:var(--indigo);white-space:nowra
 .flowline{display:flex;flex-wrap:wrap;gap:6px;margin:0 0 6px}
 .flowline .fl{font-size:13px;font-weight:700;padding:5px 12px;border-radius:999px;background:#fff;border:1px solid var(--line);color:var(--ink)}
 .flowline .fl::after{content:' →';color:var(--mute)}.flowline .fl:last-child::after{content:''}
-.flowline .fl:last-child{background:var(--fc);border-color:var(--fc);color:#fff}
+/* 단계 알약을 누르면 그 단계 카드로 이동 (마지막 칸만 칠하지 않음 — 선택된 것처럼 보이지 않게) */
+button.fl{font-family:inherit;cursor:pointer}
+button.fl:hover{border-color:var(--fc);color:var(--fc)}
+.stage{scroll-margin-top:72px}
+.stage.flash{animation:flash 1.4s ease}
+@keyframes flash{0%,40%{box-shadow:0 0 0 3px var(--fc)}100%{box-shadow:0 0 0 0 transparent}}
 a.example{display:inline-block;margin-top:10px;font-weight:800;color:var(--fc)}
 
 /* 단계 카드 */
@@ -141,7 +148,8 @@ a.example{display:inline-block;margin-top:10px;font-weight:800;color:var(--fc)}
  table.stack tr{background:#fff;border:1px solid var(--line);border-radius:14px;padding:12px 14px;margin-bottom:10px}
  table.stack td{text-align:left;border:0;padding:3px 0;font-size:14.5px}
  table.stack td:first-child{font-size:17px;padding-bottom:6px;margin-bottom:4px;border-bottom:1px solid var(--line)}
- table.stack td:not(:first-child)[data-label]::before{content:attr(data-label);display:inline-block;min-width:90px;margin-right:8px;font-size:12.5px;font-weight:800;color:var(--mute)}
+ table.stack td:not(:first-child)[data-label]{display:grid;grid-template-columns:6.6em minmax(0,1fr);column-gap:12px;align-items:baseline}
+ table.stack td:not(:first-child)[data-label]::before{content:attr(data-label);font-size:12.5px;font-weight:800;color:var(--mute);line-height:1.45}
 }
 h2.sec-title::before{display:none}
 h2.sec-title{margin:0 0 10px}
