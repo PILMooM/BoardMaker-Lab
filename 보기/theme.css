@@ -1,0 +1,144 @@
+/* 소량제작 사업 콘티 — 발표자료(10/12)와 같은 모양: 흰 바탕, 남보라 포인트, 연회색 카드, 둥근 알약 버튼 */
+:root{
+ --bg:#ffffff;--soft:#f4f5f9;--soft2:#eceef5;--line:#e3e5ee;--ink:#1f2433;--sub:#5b6173;--mute:#8b90a1;
+ --indigo:#4a5fa8;--indigo-soft:#e9ecf7;--teal:#2b7d78;--teal-soft:#e2f1ef;--violet:#7a5aa8;--violet-soft:#efe9f7;
+ --red:#c0504d;--red-soft:#fbecec;--fc:var(--indigo)
+}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.75 "Noto Sans KR","Source Han Sans KR","Malgun Gothic",sans-serif;word-break:keep-all;overflow-wrap:anywhere}
+
+/* 머리: 표지 슬라이드처럼 — 짧은 남보라 선, 큰 제목, 남보라 부제 */
+header{text-align:center;padding:44px 20px 26px}
+header .head::before{content:'';display:block;width:44px;height:4px;border-radius:2px;background:var(--indigo);margin:0 auto 22px}
+header h1{margin:0;font-size:44px;font-weight:900;letter-spacing:-1px;line-height:1.25}
+header h1 small{display:block;font-size:14px;font-weight:800;color:var(--indigo);letter-spacing:1px;margin-bottom:8px}
+.meta{display:flex;justify-content:center;gap:8px;flex-wrap:wrap;margin-top:16px}
+.meta span{padding:5px 16px;border:1px solid var(--line);border-radius:999px;font-size:14px;font-weight:700;color:var(--sub);background:#fff}
+.meta span:last-child{background:var(--indigo);border-color:var(--indigo);color:#fff}
+
+/* 탭: 알약 버튼 줄, 스크롤해도 위에 붙음 */
+.tabbar{position:sticky;top:0;z-index:5;background:#ffffffee;backdrop-filter:blur(6px);border-bottom:1px solid var(--line)}
+nav.tabs{max-width:1280px;margin:0 auto;padding:10px 28px;display:flex;gap:8px;overflow-x:auto;scrollbar-width:none}
+nav.tabs::-webkit-scrollbar{display:none}
+nav.tabs button{flex:none;padding:8px 18px;border:1px solid var(--line);border-radius:999px;background:#fff;color:var(--sub);font:700 14.5px/1.2 inherit;font-family:inherit;cursor:pointer;white-space:nowrap}
+nav.tabs button:hover{border-color:var(--indigo);color:var(--indigo)}
+nav.tabs button.on{background:var(--indigo);border-color:var(--indigo);color:#fff}
+
+main{max-width:1280px;margin:0 auto;padding:30px 28px 80px}
+section.view[hidden]{display:none}
+
+/* 슬라이드 머리: 작은 남보라 이름 → 가는 선 → 굵은 제목 → 회색 설명 */
+.sec-label{font-size:14px;font-weight:800;color:var(--indigo);padding-bottom:10px;border-bottom:1px solid var(--line);margin:0 0 18px}
+.sec-title{font-size:30px;font-weight:900;letter-spacing:-.5px;line-height:1.35;margin:0 0 8px}
+p.sub{color:var(--sub);margin:0 0 24px}
+h2{font-size:21px;font-weight:900;margin:44px 0 14px;color:var(--ink)}
+h2::before{content:'';display:inline-block;width:6px;height:18px;border-radius:3px;background:var(--fc);margin-right:10px;vertical-align:-2px}
+h3{font-size:18px;font-weight:900;margin:0 0 8px}
+.card{background:var(--soft);border-radius:16px;padding:22px 24px}
+.lead{font-size:21px;font-weight:800;line-height:1.55;margin:0 0 10px}
+.mute{color:var(--mute);font-size:13.5px}
+ul.clean{margin:0;padding-left:20px}ul.clean li{margin:6px 0}ul.clean li::marker{color:var(--indigo)}
+.grid{display:grid;gap:16px}.g3{grid-template-columns:repeat(auto-fit,minmax(260px,1fr))}
+.card.hero{background:#fff;border:2px solid var(--indigo)}
+.card.note{background:var(--indigo-soft)}.card.note h3{color:var(--indigo)}
+
+/* 세 고객 · 비교: 고객별로 나뉜 세 장의 카드 (줄 높이는 서로 맞춤) */
+.cols{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px}
+.col{display:grid;grid-row:span var(--n);grid-template-rows:subgrid;gap:0;background:#fff;border:2px solid var(--cc);border-radius:18px;padding:0 22px 10px;overflow:hidden}
+.col .col-head{margin:0 -22px 6px;padding:18px 22px 14px;background:var(--cs);border-bottom:1px solid var(--line)}
+.col .col-head strong{display:block;font-size:22px;font-weight:900;color:var(--cc)}
+.col .col-head span{font-size:14px;color:var(--sub)}
+.col .item{padding:12px 0;border-bottom:1px dashed var(--line)}
+.col .item:last-child{border-bottom:0}
+.col .item b{display:flex;align-items:center;gap:7px;font-size:12.5px;font-weight:800;color:var(--mute);margin-bottom:2px}
+.col .item b::before{content:'✓';display:inline-grid;place-items:center;width:18px;height:18px;border-radius:5px;background:var(--soft2);color:var(--cc);font-size:11px}
+.col .item p{margin:0;font-size:15.5px;font-weight:600;line-height:1.6}
+
+/* 왜 이 순서인가: 발표자료의 STEP 카드 */
+.order{display:grid;grid-template-columns:repeat(3,minmax(0,1fr)) 1.1fr;gap:14px}
+.order .ord{text-align:center;padding:26px 18px}
+.order .ord small{display:block;font-size:13px;font-weight:800;color:var(--indigo)}
+.order .ord b{display:block;font-size:26px;font-weight:900;color:var(--indigo);margin:8px 0}
+.order .ord p{margin:0;color:var(--sub);font-size:14.5px}
+.order .ord.why{background:var(--indigo);color:#fff}.order .ord.why small,.order .ord.why b,.order .ord.why p{color:#fff}
+
+/* 흐름 바로가기 */
+button.card.go{text-align:left;cursor:pointer;font:inherit;background:#fff;border:2px solid var(--fc);display:flex;flex-direction:column;gap:4px}
+button.card.go strong{font-size:20px;font-weight:900;color:var(--fc)}
+button.card.go span{color:var(--sub);font-size:14px}
+button.card.go:hover{background:var(--soft)}
+
+/* 공통 공정: 아이콘 동그라미 대신 번호 동그라미 + 사진 */
+.common{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:16px;position:relative}
+.cstep{display:flex;flex-direction:column;gap:10px;background:#fff;border:1px solid var(--line)}
+.cstep .cpic{height:120px;border-radius:12px;overflow:hidden;background:var(--soft2)}
+.cstep .cpic img{width:100%;height:100%;object-fit:cover;display:block}
+.ino{display:inline-grid;place-items:center;width:38px;height:38px;border-radius:50%;background:var(--indigo-soft);color:var(--indigo);font-weight:900;font-size:14px;align-self:flex-start}
+.cstep h3{margin:0}.cstep p{margin:0;font-size:14.5px;color:var(--sub)}
+.cstep .box{margin-top:auto}
+@media(max-width:1100px){.common{grid-template-columns:repeat(auto-fill,minmax(220px,1fr))}.order{grid-template-columns:1fr 1fr}}
+/* 넓은 화면: 3칸 + 2칸(가운데 정렬)으로 줄바꿈해 이미지를 크게 */
+@media(min-width:1101px){
+ .common{grid-template-columns:repeat(6,minmax(0,1fr));gap:20px}
+ .common .cstep{grid-column:span 2}
+ .common .cstep:nth-child(4){grid-column:2/4}
+ .common .cstep:nth-child(5){grid-column:4/6}
+ .cstep .cpic{height:auto;aspect-ratio:16/9}
+}
+
+/* 표 (수량별 생산) */
+table.setup{width:100%;border-collapse:collapse;font-size:15px;background:#fff;border-radius:12px;overflow:hidden}
+table.setup th{background:var(--indigo);color:#fff;font-size:13.5px;font-weight:800;padding:12px;text-align:center}
+table.setup td{padding:12px;border-bottom:1px solid var(--line);text-align:center;vertical-align:middle}
+table.setup td:first-child{font-weight:900;color:var(--indigo);white-space:nowrap}
+
+/* 흐름 머리 */
+.flowline{display:flex;flex-wrap:wrap;gap:6px;margin:0 0 6px}
+.flowline .fl{font-size:13px;font-weight:700;padding:5px 12px;border-radius:999px;background:#fff;border:1px solid var(--line);color:var(--ink)}
+.flowline .fl::after{content:' →';color:var(--mute)}.flowline .fl:last-child::after{content:''}
+.flowline .fl:last-child{background:var(--fc);border-color:var(--fc);color:#fff}
+a.example{display:inline-block;margin-top:10px;font-weight:800;color:var(--fc)}
+
+/* 단계 카드 */
+.board{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:16px;margin-top:22px}
+.stage{display:flex;flex-direction:column;gap:10px;background:#fff;border:1px solid var(--line);border-top:4px solid var(--fc)}
+.stage .no{display:inline-grid;place-items:center;width:40px;height:40px;border-radius:50%;background:var(--fc);color:#fff;font-weight:900;font-size:14px}
+.stage .top{display:flex;align-items:center;gap:12px}.stage .top h3{margin:0}
+.box{border-radius:10px;padding:10px 12px;font-size:14.5px;line-height:1.65;background:var(--soft)}
+.box b{display:block;font-size:12.5px;font-weight:800;color:var(--mute);margin-bottom:2px}
+.box.out{background:var(--indigo-soft)}.box.out b{color:var(--indigo)}
+.box.intent{background:#fff;border:1px solid var(--line)}.box.intent b{color:var(--fc)}.box.intent b::before{content:'✓ '}
+.box.risk{background:var(--red-soft)}.box.risk b{color:var(--red)}.box.risk b::before{content:'! '}
+
+/* 확인할 것 */
+.confirm{background:#fff;border:1px solid var(--line)}
+.confirm ul li{margin:14px 0}.confirm ul li b{font-size:16px}
+
+/* 휴대폰 */
+@media(max-width:720px){
+ header{padding:30px 16px 18px}header h1{font-size:30px}
+ nav.tabs{padding:8px 12px;-webkit-mask-image:linear-gradient(90deg,#000 85%,transparent);mask-image:linear-gradient(90deg,#000 85%,transparent)}
+ nav.tabs button{padding:7px 14px;font-size:14px}
+ main{padding:20px 16px 50px}
+ .sec-title{font-size:23px}
+ .card{padding:18px}
+ .cols{grid-template-columns:minmax(0,1fr)}
+ .col{grid-row:auto;grid-template-rows:none;display:block}
+ .order{grid-template-columns:minmax(0,1fr)}
+ .common{grid-template-columns:minmax(0,1fr)}.cstep .cpic{height:150px}
+ table.stack,table.stack tbody,table.stack tr,table.stack td{display:block;width:100%}
+ table.stack tr:has(th){display:none}
+ table.setup{background:none}
+ table.stack tr{background:#fff;border:1px solid var(--line);border-radius:14px;padding:12px 14px;margin-bottom:10px}
+ table.stack td{text-align:left;border:0;padding:3px 0;font-size:14.5px}
+ table.stack td:first-child{font-size:17px;padding-bottom:6px;margin-bottom:4px;border-bottom:1px solid var(--line)}
+ table.stack td:not(:first-child)[data-label]::before{content:attr(data-label);display:inline-block;min-width:90px;margin-right:8px;font-size:12.5px;font-weight:800;color:var(--mute)}
+}
+h2.sec-title::before{display:none}
+h2.sec-title{margin:0 0 10px}
+/* 흐름 탭에서는 만드는 것 칸도 그 흐름 색으로 */
+section[style*="--fs"] .box.out{background:var(--fs)}section[style*="--fs"] .box.out b{color:var(--fc)}
+/* 단계 흐름 알약: 두 줄로 반씩 나눠 같은 너비로 */
+.flowline{display:grid;grid-template-columns:repeat(var(--half,5),minmax(0,1fr));gap:8px 10px}
+.flowline .fl{text-align:center;padding:8px 10px;font-size:14px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+@media(max-width:720px){.flowline{grid-template-columns:1fr 1fr}.flowline .fl{font-size:13px;white-space:normal}}
