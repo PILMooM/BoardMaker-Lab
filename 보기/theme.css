@@ -17,6 +17,11 @@ footer .ftext{display:flex;flex-direction:column;line-height:1.5}
 footer strong{font-size:18px;font-weight:900}
 footer span{font-size:15px;color:var(--sub);font-weight:700}
 footer small{font-size:13px;color:var(--mute)}
+footer .play{display:inline-flex;align-items:center;gap:10px;margin-top:12px;padding:8px 14px;border-radius:999px;background:#fff;border:1px solid var(--line);color:var(--ink);text-decoration:none;font-size:14px;align-self:flex-start}
+footer .play b{color:#e07a1f;font-weight:900}
+footer .play span{color:var(--sub);font-size:14px;font-weight:600}
+a.play:hover{border-color:#e07a1f}
+@media(max-width:720px){footer .play{align-self:center;flex-direction:column;gap:2px;border-radius:14px}}
 @media(max-width:720px){header .brand{height:42px;margin-bottom:18px}footer{flex-direction:column;text-align:center;gap:12px}footer img{width:72px;height:72px}}
 header h1{margin:0;font-size:44px;font-weight:900;letter-spacing:-1px;line-height:1.25}
 header h1 small{display:block;font-size:14px;font-weight:800;color:var(--indigo);letter-spacing:1px;margin-bottom:8px}
