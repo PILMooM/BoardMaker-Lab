@@ -34,7 +34,8 @@ function columns(head,rows){const wrap=el('div','cols');
 
 // 1) 한눈에
 {const s=sections.overview;top(s,'한눈에',P.titles.overview);
- const hero=el('div','card hero');hero.append(el('p','lead',P.oneLine),el('p','sub',P.summary));hero.lastChild.style.margin='0';s.append(hero);
+ const hero=el('div','card hero');const sum=el('p','sub');for(const part of P.summary.split(/(B2C|B2B|B2G)/)){sum.append(/^B2[CBG]$/.test(part)?el('mark','hl-'+part.toLowerCase(),part):document.createTextNode(part));}
+ hero.append(el('p','lead',P.oneLine),sum);hero.lastChild.style.margin='0';s.append(hero);
  heading(s,'세 고객 한눈에');s.append(columns(P.channels.head,P.channels.rows));
  heading(s,'처음 만날 고객은 플레이어, 다음은 기업·기관');const o=el('div','order');
  (P.order||[]).forEach(([step,name,text],i)=>{const c=el('div','card ord'+(i===P.order.length-1?' why':''));c.append(el('small',null,step),el('b',null,name),el('p',null,text));o.append(c);});s.append(o);
