@@ -114,6 +114,8 @@ table.setup td:first-child{font-weight:900;color:var(--indigo);white-space:nowra
 /* 단계 알약을 누르면 그 단계 카드로 이동 (마지막 칸만 칠하지 않음 — 선택된 것처럼 보이지 않게) */
 button.fl{font-family:inherit;cursor:pointer}
 button.fl:hover{border-color:var(--fc);color:var(--fc)}
+.flowline .fl.on,.flowline .fl.on:hover{background:var(--fc);border-color:var(--fc);color:#fff}
+.flowline .fl.on::after{color:#ffffffaa}
 .stage{scroll-margin-top:72px}
 .stage.flash{animation:flash 1.4s ease}
 @keyframes flash{0%,40%{box-shadow:0 0 0 3px var(--fc)}100%{box-shadow:0 0 0 0 transparent}}
@@ -161,6 +163,8 @@ h2.sec-title{margin:0 0 10px}
 /* 흐름 탭에서는 만드는 것 칸도 그 흐름 색으로 */
 section[style*="--fs"] .box.out{background:var(--fs)}section[style*="--fs"] .box.out b{color:var(--fc)}
 /* 단계 흐름 알약: 두 줄로 반씩 나눠 같은 너비로 */
-.flowline{display:grid;grid-template-columns:repeat(var(--half,5),minmax(0,1fr));gap:8px 10px}
-.flowline .fl{text-align:center;padding:8px 10px;font-size:14px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.flowline{display:grid;grid-template-columns:repeat(var(--half,5),minmax(0,1fr));gap:12px 12px;margin:28px 0 0}
+.flowline .fl{text-align:center;padding:11px 10px;font-size:14.5px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+a.example{margin-top:22px}
+.board{margin-top:36px}
 @media(max-width:720px){.flowline{grid-template-columns:1fr 1fr}.flowline .fl{font-size:13px;white-space:normal}}

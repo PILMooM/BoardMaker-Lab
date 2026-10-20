@@ -52,7 +52,7 @@ function columns(head,rows){const wrap=el('div','cols');
 // 3~5) 흐름별 단계 보드
 for(const id of FLOW_IDS){const s=sections[id],f=P.flows[id];s.style.setProperty('--fc',f.color);s.style.setProperty('--fs',f.soft);
  top(s,f.name,f.title,f.intro);
- const line=el('div','flowline');line.style.setProperty('--half',Math.ceil(f.steps.length/2));f.steps.forEach((st,i)=>{const b=el('button','fl',two(i)+' '+st.name);b.type='button';b.onclick=()=>{const t=document.getElementById(id+'-'+two(i));if(!t)return;t.scrollIntoView({behavior:'smooth',block:'start'});t.classList.remove('flash');void t.offsetWidth;t.classList.add('flash');};line.append(b);});s.append(line);
+ const line=el('div','flowline');line.style.setProperty('--half',Math.ceil(f.steps.length/2));f.steps.forEach((st,i)=>{const b=el('button','fl',two(i)+' '+st.name);b.type='button';b.onclick=()=>{for(const x of line.children)x.classList.toggle('on',x===b);const t=document.getElementById(id+'-'+two(i));if(!t)return;t.scrollIntoView({behavior:'smooth',block:'start'});t.classList.remove('flash');void t.offsetWidth;t.classList.add('flash');};line.append(b);});s.append(line);
  if(f.example){const a=el('a','example',f.example.label+' ↗');a.href=f.example.url;a.target='_blank';s.append(a);}
  const board=el('div','board');
  f.steps.forEach((st,i)=>{const c=el('div','card stage');c.id=id+'-'+two(i);const t=el('div','top');t.append(el('span','no',two(i)),el('h3',null,st.name));c.append(t);
