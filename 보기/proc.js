@@ -9,7 +9,11 @@ const FLOW_IDS=['b2c','b2b','b2g'];
 document.title=P.title+' · 사업 콘티';
 
 const header=el('header'),head=el('div','head'),h1=el('h1');h1.append(el('small',null,P.kind),document.createTextNode(P.title));
-const meta=el('div','meta');for(const t of P.meta||[])meta.append(el('span',null,t));head.append(h1,meta);header.append(head);
+const meta=el('div','meta');for(const t of P.meta||[])meta.append(el('span',null,t));
+const brand=el('img','brand');brand.src='그림/logo-horizontal.svg';brand.alt='보드메이커 랩';
+head.append(brand,h1,meta);header.append(head);
+// 브라우저 탭 아이콘
+const ico=document.createElement('link');ico.rel='icon';ico.type='image/svg+xml';ico.href='그림/logo-symbol.svg';document.head.append(ico);
 const tabs=el('nav','tabs'),tabbar=el('div','tabbar');tabbar.append(tabs);document.body.append(header,tabbar);
 const TABS=[['overview','한눈에'],['common','공통 제작 공정'],['b2c','B2C · 자체 게임'],['b2b','B2B · 기업 의뢰'],['b2g','B2G · 기관 의뢰'],['compare','비교']];
 const main=el('main'),views=el('div');main.append(views);document.body.append(main);
@@ -67,5 +71,9 @@ for(const id of FLOW_IDS){const s=sections[id],f=P.flows[id];s.style.setProperty
 
 // 휴대폰에서는 표를 줄마다 카드로 쌓아 보여 주므로, 칸마다 머리글 이름을 달아 둠
 for(const t of document.querySelectorAll('main table')){const rows=[...t.rows];const head=[...rows[0].cells].map(x=>x.textContent);t.classList.add('stack');for(const r of rows)[...r.cells].forEach((c,i)=>{if(c.tagName==='TD'&&head[i])c.dataset.label=head[i];});}
+// 맨 아래: 엠블럼 + 슬로건
+const foot=el('footer'),fi=el('img');fi.src='그림/logo-emblem.svg';fi.alt='보드메이커 랩 엠블럼';
+const ft=el('div','ftext');ft.append(el('strong',null,'보드메이커 랩'),el('span',null,'기획부터 실물까지, 소량으로 만드는 보드게임'),el('small',null,'부천 무드보드에서 플레이어 반응을 직접 검증합니다.'));
+foot.append(fi,ft);document.body.append(foot);
 show(TABS.some(([k])=>k===location.hash.slice(1))?location.hash.slice(1):'overview');
 })();
