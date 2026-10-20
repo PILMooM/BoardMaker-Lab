@@ -13,6 +13,11 @@ const meta=el('div','meta');for(const t of P.meta||[])meta.append(el('span',null
 const tabs=el('nav','tabs'),tabbar=el('div','tabbar');tabbar.append(tabs);document.body.append(header,tabbar);
 const TABS=[['overview','한눈에'],['common','공통 제작 공정'],['b2c','B2C · 자체 게임'],['b2b','B2B · 기업 의뢰'],['b2g','B2G · 기관 의뢰'],['compare','비교']];
 const main=el('main'),views=el('div');main.append(views);document.body.append(main);
+// 사진 크게 보기: 공정 사진을 누르면 화면 가득 열리고, 아무 데나 한 번 더 누르거나 Esc로 닫힘
+const zoom=el('div','zoom'),zimg=el('img'),zcap=el('div','zcap');zoom.hidden=true;zoom.append(zimg,zcap);document.body.append(zoom);
+const closeZoom=()=>{zoom.hidden=true;zimg.removeAttribute('src');};
+zoom.onclick=closeZoom;addEventListener('keydown',e=>{if(e.key==='Escape'&&!zoom.hidden)closeZoom();});
+main.addEventListener('click',e=>{const t=e.target;if(t.tagName==='IMG'&&t.closest('.cpic')){zimg.src=t.src;zimg.alt=t.alt;zcap.textContent=t.alt;zoom.hidden=false;}});
 const sections={};for(const [id,name] of TABS){const b=el('button',null,name);b.dataset.tab=id;b.onclick=()=>show(id);tabs.append(b);const s=el('section','view');s.hidden=true;sections[id]=s;views.append(s);}
 function show(id){for(const b of tabs.children){b.classList.toggle('on',b.dataset.tab===id);if(b.dataset.tab===id)tabs.scrollTo({left:b.offsetLeft-(tabs.clientWidth-b.offsetWidth)/2});}for(const [k,s] of Object.entries(sections))s.hidden=k!==id;try{history.replaceState(null,'','#'+id);}catch{}scrollTo({top:0});}
 

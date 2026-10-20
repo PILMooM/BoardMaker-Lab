@@ -12,17 +12,26 @@ header{text-align:center;padding:44px 20px 26px}
 header .head::before{content:'';display:block;width:44px;height:4px;border-radius:2px;background:var(--indigo);margin:0 auto 22px}
 header h1{margin:0;font-size:44px;font-weight:900;letter-spacing:-1px;line-height:1.25}
 header h1 small{display:block;font-size:14px;font-weight:800;color:var(--indigo);letter-spacing:1px;margin-bottom:8px}
-.meta{display:flex;justify-content:center;gap:8px;flex-wrap:wrap;margin-top:16px}
-.meta span{padding:5px 16px;border:1px solid var(--line);border-radius:999px;font-size:14px;font-weight:700;color:var(--sub);background:#fff}
-.meta span:last-child{background:var(--indigo);border-color:var(--indigo);color:#fff}
+/* 머리 태그: 버튼처럼 보이지 않게 — 점으로 나눈 글자만 */
+.meta{display:flex;justify-content:center;flex-wrap:wrap;margin-top:14px}
+.meta span{font-size:15px;font-weight:700;color:var(--sub)}
+.meta span+span::before{content:'·';margin:0 12px;color:#c3c8d6;font-weight:900}
+.meta span:last-child{color:var(--indigo)}
 
-/* 탭: 알약 버튼 줄, 스크롤해도 위에 붙음 */
+/* 탭: 밑줄 탭, 스크롤해도 위에 붙음 */
 .tabbar{position:sticky;top:0;z-index:5;background:#ffffffee;backdrop-filter:blur(6px);border-bottom:1px solid var(--line)}
-nav.tabs{max-width:1280px;margin:0 auto;padding:10px 28px;display:flex;gap:8px;overflow-x:auto;scrollbar-width:none}
+nav.tabs{max-width:1280px;margin:0 auto;padding:0 28px;display:flex;gap:4px;overflow-x:auto;scrollbar-width:none}
 nav.tabs::-webkit-scrollbar{display:none}
-nav.tabs button{flex:none;padding:8px 18px;border:1px solid var(--line);border-radius:999px;background:#fff;color:var(--sub);font:700 14.5px/1.2 inherit;font-family:inherit;cursor:pointer;white-space:nowrap}
-nav.tabs button:hover{border-color:var(--indigo);color:var(--indigo)}
-nav.tabs button.on{background:var(--indigo);border-color:var(--indigo);color:#fff}
+nav.tabs button{flex:none;padding:15px 16px 13px;border:0;border-radius:0;background:none;color:var(--sub);font:700 15px/1.2 inherit;font-family:inherit;cursor:pointer;white-space:nowrap;box-shadow:inset 0 -3px 0 transparent}
+nav.tabs button:hover{color:var(--indigo)}
+nav.tabs button.on{color:var(--indigo);box-shadow:inset 0 -3px 0 var(--indigo)}
+
+/* 사진 크게 보기: 누르면 열리고, 한 번 더 누르면 닫힘 */
+.cpic img{cursor:zoom-in}
+.zoom{position:fixed;inset:0;z-index:50;background:rgba(20,24,36,.88);display:flex;align-items:center;justify-content:center;padding:24px;cursor:zoom-out}
+.zoom[hidden]{display:none}
+.zoom img{max-width:100%;max-height:100%;border-radius:10px;box-shadow:0 10px 40px rgba(0,0,0,.4);background:#fff}
+.zoom .zcap{position:absolute;left:0;right:0;bottom:14px;text-align:center;color:#fff;font-weight:700;font-size:14px}
 
 main{max-width:1280px;margin:0 auto;padding:30px 28px 80px}
 section.view[hidden]{display:none}
@@ -72,7 +81,7 @@ button.card.go:hover{background:var(--soft)}
 .common{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:16px;position:relative}
 .cstep{display:flex;flex-direction:column;gap:10px;background:#fff;border:1px solid var(--line)}
 .cstep .cpic{aspect-ratio:4/3;border-radius:12px;overflow:hidden;background:#f6f3ec}
-.cstep .cpic img{width:100%;height:100%;object-fit:contain;display:block}
+.cstep .cpic img{width:100%;height:100%;object-fit:cover;display:block}
 .ino{display:inline-grid;place-items:center;width:38px;height:38px;border-radius:50%;background:var(--indigo-soft);color:var(--indigo);font-weight:900;font-size:14px;align-self:flex-start}
 .cstep h3{margin:0}.cstep p{margin:0;font-size:14.5px;color:var(--sub)}
 .cstep .box{margin-top:auto}
@@ -116,8 +125,9 @@ a.example{display:inline-block;margin-top:10px;font-weight:800;color:var(--fc)}
 /* 휴대폰 */
 @media(max-width:720px){
  header{padding:30px 16px 18px}header h1{font-size:30px}
- nav.tabs{padding:8px 12px;-webkit-mask-image:linear-gradient(90deg,#000 85%,transparent);mask-image:linear-gradient(90deg,#000 85%,transparent)}
- nav.tabs button{padding:7px 14px;font-size:14px}
+ nav.tabs{padding:0 12px;-webkit-mask-image:linear-gradient(90deg,#000 85%,transparent);mask-image:linear-gradient(90deg,#000 85%,transparent)}
+ nav.tabs button{padding:13px 12px 11px;font-size:14px}
+ .zoom{padding:10px}
  main{padding:20px 16px 50px}
  .sec-title{font-size:23px}
  .card{padding:18px}
