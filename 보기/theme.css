@@ -71,8 +71,8 @@ button.card.go:hover{background:var(--soft)}
 /* 공통 공정: 아이콘 동그라미 대신 번호 동그라미 + 사진 */
 .common{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:16px;position:relative}
 .cstep{display:flex;flex-direction:column;gap:10px;background:#fff;border:1px solid var(--line)}
-.cstep .cpic{height:120px;border-radius:12px;overflow:hidden;background:var(--soft2)}
-.cstep .cpic img{width:100%;height:100%;object-fit:cover;display:block}
+.cstep .cpic{aspect-ratio:4/3;border-radius:12px;overflow:hidden;background:#f6f3ec}
+.cstep .cpic img{width:100%;height:100%;object-fit:contain;display:block}
 .ino{display:inline-grid;place-items:center;width:38px;height:38px;border-radius:50%;background:var(--indigo-soft);color:var(--indigo);font-weight:900;font-size:14px;align-self:flex-start}
 .cstep h3{margin:0}.cstep p{margin:0;font-size:14.5px;color:var(--sub)}
 .cstep .box{margin-top:auto}
@@ -83,8 +83,6 @@ button.card.go:hover{background:var(--soft)}
  .common .cstep{grid-column:span 2}
  .common .cstep:nth-child(4){grid-column:2/4}
  .common .cstep:nth-child(5){grid-column:4/6}
- .cstep .cpic{height:auto;aspect-ratio:4/3;background:#f6f3ec}
- .cstep .cpic img{object-fit:contain}
 }
 
 /* 표 (수량별 생산) */
@@ -126,7 +124,7 @@ a.example{display:inline-block;margin-top:10px;font-weight:800;color:var(--fc)}
  .cols{grid-template-columns:minmax(0,1fr)}
  .col{grid-row:auto;grid-template-rows:none;display:block}
  .order{grid-template-columns:minmax(0,1fr)}
- .common{grid-template-columns:minmax(0,1fr)}.cstep .cpic{height:150px}
+ .common{grid-template-columns:minmax(0,1fr)}
  table.stack,table.stack tbody,table.stack tr,table.stack td{display:block;width:100%}
  table.stack tr:has(th){display:none}
  table.setup{background:none}
