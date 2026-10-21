@@ -79,8 +79,8 @@ const PLAY={name:'부천 무드보드',addr:'부천시 원미구 상일로 82',u
 const pl=el(PLAY.url?'a':'div','play');if(PLAY.url){pl.href=PLAY.url;pl.target='_blank';pl.rel='noopener';}
 pl.append(el('b',null,'직접 플레이해 보기'),el('span',null,PLAY.name+' · '+PLAY.addr+(PLAY.url?' ↗':'')));ft.append(pl);
 foot.append(fi,ft);document.body.append(foot);
-// 여러 문장이 한 덩어리로 이어지면 읽기 어려워서, 문장이 끝나는 마침표 뒤에서 줄을 바꿈
-{const w=document.createTreeWalker(main,NodeFilter.SHOW_TEXT),hit=[];let n;while(n=w.nextNode())if(/[.?!] +(?=\S)/.test(n.data))hit.push(n);
+// 여러 문장이 한 덩어리로 이어지면 읽기 어려워서, 문장이 끝나는 마침표 뒤에서 줄을 바꿈 (콘티.js에 \n을 넣은 글도 그 자리에서 줄바꿈)
+{const w=document.createTreeWalker(main,NodeFilter.SHOW_TEXT),hit=[];let n;while(n=w.nextNode())if(/[.?!] +(?=\S)|\n/.test(n.data))hit.push(n);
  for(const t of hit){t.data=t.data.replace(/([.?!]) +(?=\S)/g,'$1\n');t.parentElement.classList.add('lines');}}
 show(TABS.some(([k])=>k===location.hash.slice(1))?location.hash.slice(1):'overview');
 })();
