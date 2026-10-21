@@ -12,6 +12,8 @@ const header=el('header'),head=el('div','head'),h1=el('h1');h1.append(el('small'
 const meta=el('div','meta');for(const t of P.meta||[])meta.append(el('span',null,t));
 const brand=el('img','brand');brand.src='그림/logo-horizontal.svg';brand.alt='보드메이커 랩';
 head.append(brand,h1,meta);header.append(head);
+// 맨 위 브랜드 그림: 휴대폰에서는 로고·소개 부분만 자른 그림. 그림 안에 로고가 있어 머리 로고는 숨김
+if(P.banner){const pic=el('picture','banner'),so=el('source'),bi=el('img');so.media='(max-width:720px)';so.srcset='그림/'+P.banner.m;bi.src='그림/'+P.banner.pc;bi.alt=P.banner.alt;pic.append(so,bi);header.prepend(pic);header.classList.add('has-banner');}
 // 브라우저 탭 아이콘
 const ico=document.createElement('link');ico.rel='icon';ico.type='image/svg+xml';ico.href='그림/logo-symbol.svg';document.head.append(ico);
 const tabs=el('nav','tabs'),tabbar=el('div','tabbar');tabbar.append(tabs);document.body.append(header,tabbar);
