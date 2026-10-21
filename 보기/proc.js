@@ -11,10 +11,7 @@ document.title=P.title+' · 사업 콘티';
 const header=el('header'),head=el('div','head'),h1=el('h1');h1.append(el('small',null,P.kind),document.createTextNode(P.title));
 const meta=el('div','meta');for(const t of P.meta||[])meta.append(el('span',null,t));
 const brand=el('img','brand');brand.src='그림/logo-horizontal.svg';brand.alt='보드메이커 랩';
-head.append(brand,h1,meta);header.append(head);
-// 맨 위 브랜드 그림: 휴대폰에서는 로고·소개 부분만 자른 그림. 그림 안에 로고가 있어 머리 로고는 숨김
-if(P.banner){const pic=el('picture','banner'),so=el('source'),bi=el('img');so.media='(max-width:720px)';so.srcset='그림/'+P.banner.m;bi.src='그림/'+P.banner.pc;bi.alt=P.banner.alt;pic.append(so,bi);header.prepend(pic);header.classList.add('has-banner');}
-// 브라우저 탭 아이콘
+head.append(brand,h1,meta);header.append(head);// 브라우저 탭 아이콘
 const ico=document.createElement('link');ico.rel='icon';ico.type='image/svg+xml';ico.href='그림/logo-symbol.svg';document.head.append(ico);
 const tabs=el('nav','tabs'),tabbar=el('div','tabbar');tabbar.append(tabs);document.body.append(header,tabbar);
 const TABS=[['overview','한눈에'],['common','공통 제작 공정'],['b2c','B2C · 자체 게임'],['b2b','B2B · 기업 의뢰'],['b2g','B2G · 기관 의뢰'],['compare','비교']];
@@ -40,6 +37,8 @@ function columns(head,rows){const wrap=el('div','cols');
 
 // 1) 한눈에
 {const s=sections.overview;top(s,'한눈에',P.titles.overview);
+ // '한눈에' 바로 밑 브랜드 그림: 휴대폰에서는 로고·소개 부분만 자른 그림
+ if(P.banner){const pic=el('picture','banner'),so=el('source'),bi=el('img');so.media='(max-width:720px)';so.srcset='그림/'+P.banner.m;bi.src='그림/'+P.banner.pc;bi.alt=P.banner.alt;pic.append(so,bi);s.firstChild.after(pic);}
  const hero=el('div','card hero');const sum=el('p','sub');for(const part of P.summary.split(/(B2C|B2B|B2G)/)){sum.append(/^B2[CBG]$/.test(part)?el('mark','hl-'+part.toLowerCase(),part):document.createTextNode(part));}
  hero.append(el('p','lead',P.oneLine),sum);hero.lastChild.style.margin='0';s.append(hero);
  heading(s,'세 고객 한눈에');s.append(columns(P.channels.head,P.channels.rows));
