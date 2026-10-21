@@ -10,7 +10,7 @@ body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.75 "Noto Sans KR
 /* 머리: 표지 슬라이드처럼 — 짧은 남보라 선, 큰 제목, 남보라 부제 */
 header{text-align:center;padding:44px 20px 26px}
 header .brand{display:block;height:58px;width:auto;margin:0 auto 24px}
-.banner{display:block;max-width:860px;margin:14px 0 26px}
+.banner{display:block;max-width:860px;margin:14px auto 26px}
 .banner img{display:block;width:100%;height:auto;border-radius:12px;box-shadow:0 2px 12px #2a2a3a14}
 /* 맨 아래 브랜드 */
 footer{display:flex;align-items:center;justify-content:center;gap:22px;padding:40px 20px 56px;border-top:1px solid var(--line);background:#f6f3ec}
@@ -24,7 +24,7 @@ footer .play b{color:#e07a1f;font-weight:900}
 footer .play span{color:var(--sub);font-size:14px;font-weight:600}
 a.play:hover{border-color:#e07a1f}
 @media(max-width:720px){footer .play{align-self:center;flex-direction:column;gap:2px;border-radius:14px}}
-@media(max-width:720px){header .brand{height:42px;margin-bottom:18px}.banner{margin:10px 0 20px}.banner img{border-radius:10px}footer{flex-direction:column;text-align:center;gap:12px}footer img{width:72px;height:72px}}
+@media(max-width:720px){header .brand{height:42px;margin-bottom:18px}.banner{margin:10px auto 20px}.banner img{border-radius:10px}footer{flex-direction:column;text-align:center;gap:12px}footer img{width:72px;height:72px}}
 header h1{margin:0;font-size:44px;font-weight:900;letter-spacing:-1px;line-height:1.25}
 header h1 small{display:block;font-size:14px;font-weight:800;color:var(--indigo);letter-spacing:1px;margin-bottom:8px}
 /* 머리 태그: 버튼처럼 보이지 않게 — 점으로 나눈 글자만 */
