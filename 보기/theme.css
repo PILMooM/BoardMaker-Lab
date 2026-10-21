@@ -185,3 +185,6 @@ a.example{margin-top:22px;padding:11px 20px;border-radius:999px;background:#e07a
 a.example:hover{background:#c96a14;transform:translateY(-1px)}
 .board{margin-top:36px}
 @media(max-width:720px){.flowline{grid-template-columns:1fr 1fr}.flowline .fl{font-size:13px;white-space:normal}}
+
+/* 문장마다 줄바꿈 (proc.js가 마침표 뒤에 줄바꿈을 넣은 글) */
+.lines{white-space:pre-line}
