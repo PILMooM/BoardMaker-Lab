@@ -127,6 +127,10 @@ table.setup{width:100%;border-collapse:collapse;font-size:15px;background:#fff;b
 table.setup th{background:var(--indigo);color:#fff;font-size:13.5px;font-weight:800;padding:12px;text-align:center}
 table.setup td{padding:12px;border-bottom:1px solid var(--line);text-align:center;vertical-align:middle}
 table.setup td:first-child{font-weight:900;color:var(--indigo);white-space:nowrap}
+/* 머리글은 진한 남색과 연한 파랑을 번갈아, 연한 열은 아래 칸도 아주 옅게 깔아 열이 눈에 들어오게 */
+table.setup th:nth-child(even){background:#dfe4f6;color:var(--indigo)}
+table.setup th:first-child{background:#2f3f7a}
+@media(min-width:721px){table.setup td:nth-child(even){background:#f7f8fd}}
 
 /* 흐름 머리 */
 .flowline{display:flex;flex-wrap:wrap;gap:6px;margin:0 0 6px}
