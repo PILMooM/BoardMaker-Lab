@@ -120,7 +120,7 @@ window.PROC={
   },
   {
    "name": "수량별 생산",
-   "img": "board.jpg",
+   "img": "set-full.jpg",
    "text": "필요한 수량에 맞춰 직접 출력 · 업체 소량 제작 · 대량 인쇄 중에서 선택.",
    "out": "완성품 · 검수"
   }
