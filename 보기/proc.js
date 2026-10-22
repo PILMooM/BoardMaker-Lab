@@ -50,7 +50,7 @@ function columns(head,rows){const wrap=el('div','cols');
 
 // 2) 공통 제작 공정
 {const s=sections.common;top(s,'공통 제작 공정',P.titles.common,'B2C · B2B · B2G 모두 이 다섯 단계를 거칩니다. 다른 점은 "누구의 목적에서 출발하느냐"와 "누가 확인하느냐"입니다.');
- const row=el('div','common');P.common.forEach((st,i)=>{const c=el('div','card cstep');const pic=el('div','cpic');pic.append(img(st.img,st.name));const t=el('div','ctop');t.append(el('span','ino',two(i)),el('h3',null,st.name));c.append(t,pic,el('p',null,st.text));const o=el('div','box out');o.append(el('b',null,'만드는 것'),document.createTextNode(st.out));c.append(o);row.append(c);});s.append(row);
+ const row=el('div','common');P.common.forEach((st,i)=>{const c=el('div','card cstep');const pic=el('div','cpic'+(st.fit?' fit-'+st.fit:''));pic.append(img(st.img,st.name));const t=el('div','ctop');t.append(el('span','ino',two(i)),el('h3',null,st.name));c.append(t,pic,el('p',null,st.text));const o=el('div','box out');o.append(el('b',null,'만드는 것'),document.createTextNode(st.out));c.append(o);row.append(c);});s.append(row);
  heading(s,'수량에 맞춰 생산 방식 고르기');s.append(table(P.qty.head,P.qty.rows,'setup'));
  const n=el('div','card note');n.style.marginTop='16px';n.append(el('h3',null,'생산 능력'),el('p',null,P.capacity));n.lastChild.style.margin='0';s.append(n);}
 

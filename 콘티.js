@@ -96,7 +96,8 @@ window.PROC={
  "common": [
   {
    "name": "기획",
-   "img": "planning-sketch.jpg",
+   "img": "roadmap.jpg",
+   "fit": "contain",
    "text": "B2C는 플레이어 경험에서, B2B·B2G는 의뢰처의 목적·대상·예산에서 출발. 소재를 게임 장치로 옮기는 것이 핵심 (조병창: 역사 → 토큰·용광로·생산진행도).",
    "out": "기획 콘티 (웹)"
   },

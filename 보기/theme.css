@@ -103,6 +103,9 @@ button.card.go:hover{background:var(--soft)}
 .cstep{display:flex;flex-direction:column;gap:10px;background:#fff;border:1px solid var(--line)}
 .cstep .cpic{aspect-ratio:4/3;border-radius:12px;overflow:hidden;background:#f6f3ec}
 .cstep .cpic img{width:100%;height:100%;object-fit:cover;display:block}
+/* 가로로 긴 그림(fit:'contain')은 자르지 않고 흰 바탕에 통째로 */
+.cstep .cpic.fit-contain{background:#fff;border:1px solid var(--line)}
+.cstep .cpic.fit-contain img{object-fit:contain}
 .ino{display:inline-grid;place-items:center;width:38px;height:38px;border-radius:50%;background:var(--indigo-soft);color:var(--indigo);font-weight:900;font-size:14px;align-self:flex-start}
 .cstep .ctop{display:flex;align-items:center;gap:12px}
 .cstep .ctop .ino{align-self:center;flex:none}
