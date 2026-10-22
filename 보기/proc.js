@@ -72,13 +72,13 @@ for(const id of FLOW_IDS){const s=sections[id],f=P.flows[id];s.style.setProperty
 
 // 휴대폰에서는 표를 줄마다 카드로 쌓아 보여 주므로, 칸마다 머리글 이름을 달아 둠
 for(const t of document.querySelectorAll('main table')){const rows=[...t.rows];const head=[...rows[0].cells].map(x=>x.textContent);t.classList.add('stack');for(const r of rows)[...r.cells].forEach((c,i)=>{if(c.tagName==='TD'&&head[i])c.dataset.label=head[i];});}
-// 맨 아래: 엠블럼 + 슬로건
-const foot=el('footer'),fi=el('img');fi.src='그림/logo-emblem.svg';fi.alt='보드메이커 랩 엠블럼';
-const ft=el('div','ftext');ft.append(el('strong',null,'보드메이커 랩'),el('span',null,'기획부터 실물까지, 소량으로 만드는 보드게임'),el('small',null,'부천 무드보드에서 플레이어 반응을 직접 검증합니다.'));
+// 맨 아래: 한 줄 — 왼쪽 앱 아이콘 엠블럼·이름, 오른쪽 체험 장소 버튼 (본문 폭에 맞춤)
+const foot=el('footer'),fin=el('div','finner'),fb=el('div','fbrand'),fi=el('img');fi.src='그림/logo-app.png';fi.alt='보드메이커 랩 엠블럼';
+const ft=el('div','ftext');ft.append(el('strong',null,'보드메이커 랩'),el('span',null,'기획부터 실물까지, 소량으로 만드는 보드게임'));fb.append(fi,ft);
 const PLAY={name:'부천 무드보드',addr:'부천시 원미구 상일로 82',url:'https://moodboard.kr'};
 const pl=el(PLAY.url?'a':'div','play');if(PLAY.url){pl.href=PLAY.url;pl.target='_blank';pl.rel='noopener';}
-pl.append(el('b',null,'직접 플레이해 보기'),el('span',null,PLAY.name+' · '+PLAY.addr+(PLAY.url?' ↗':'')));ft.append(pl);
-foot.append(fi,ft);document.body.append(foot);
+const pt=el('div');pt.append(el('b',null,'직접 플레이해 보기'),el('span',null,PLAY.name+' · '+PLAY.addr));pl.append(pt);if(PLAY.url)pl.append(el('i',null,'↗'));
+fin.append(fb,pl);foot.append(fin);document.body.append(foot);
 // 여러 문장이 한 덩어리로 이어지면 읽기 어려워서, 문장이 끝나는 마침표 뒤에서 줄을 바꿈 (콘티.js에 \n을 넣은 글도 그 자리에서 줄바꿈)
 {const w=document.createTreeWalker(main,NodeFilter.SHOW_TEXT),hit=[];let n;while(n=w.nextNode())if(/[.?!] +(?=\S)|\n/.test(n.data))hit.push(n);
  for(const t of hit){t.data=t.data.replace(/([.?!]) +(?=\S)/g,'$1\n');t.parentElement.classList.add('lines');}}
