@@ -75,7 +75,7 @@ for(const t of document.querySelectorAll('main table')){const rows=[...t.rows];c
 // 맨 아래: 엠블럼 + 슬로건
 const foot=el('footer'),fi=el('img');fi.src='그림/logo-emblem.svg';fi.alt='보드메이커 랩 엠블럼';
 const ft=el('div','ftext');ft.append(el('strong',null,'보드메이커 랩'),el('span',null,'기획부터 실물까지, 소량으로 만드는 보드게임'),el('small',null,'부천 무드보드에서 플레이어 반응을 직접 검증합니다.'));
-const PLAY={name:'부천 무드보드',addr:'부천시 원미구 상일로 82',url:''};// url: 무드보드 홈페이지 주소가 정해지면 넣기
+const PLAY={name:'부천 무드보드',addr:'부천시 원미구 상일로 82',url:'https://moodboard.kr'};
 const pl=el(PLAY.url?'a':'div','play');if(PLAY.url){pl.href=PLAY.url;pl.target='_blank';pl.rel='noopener';}
 pl.append(el('b',null,'직접 플레이해 보기'),el('span',null,PLAY.name+' · '+PLAY.addr+(PLAY.url?' ↗':'')));ft.append(pl);
 foot.append(fi,ft);document.body.append(foot);
