@@ -14,7 +14,7 @@ const brand=el('img','brand');brand.src='그림/logo-horizontal.svg';brand.alt='
 head.append(brand,h1,meta);header.append(head);// 브라우저 탭 아이콘
 const ico=document.createElement('link');ico.rel='icon';ico.type='image/svg+xml';ico.href='그림/logo-symbol.svg';document.head.append(ico);
 const tabs=el('nav','tabs'),tabbar=el('div','tabbar');tabbar.append(tabs);document.body.append(header,tabbar);
-const TABS=[['overview','한눈에'],['common','공통 제작 공정'],['b2c','B2C · 자체 게임'],['b2b','B2B · 기업 의뢰'],['b2g','B2G · 기관 의뢰'],['compare','비교']];
+const TABS=[['overview','한눈에'],['common','공통 제작 공정'],['b2c','B2C · 자체 게임'],['b2b','B2B · 기업 의뢰'],['b2g','B2G · 기관 의뢰'],['compare','나에게 맞는 방식']];
 const main=el('main'),views=el('div');main.append(views);document.body.append(main);
 // 사진 크게 보기: 공정 사진을 누르면 화면 가득 열리고, 아무 데나 한 번 더 누르거나 Esc로 닫힘
 const zoom=el('div','zoom'),zimg=el('img'),zcap=el('div','zcap');zoom.hidden=true;zoom.append(zimg,zcap);document.body.append(zoom);
@@ -66,7 +66,7 @@ for(const id of FLOW_IDS){const s=sections[id],f=P.flows[id];s.style.setProperty
  s.append(board);}
 
 // 6) 비교 · 확인할 것
-{const s=sections.compare;top(s,'비교',P.titles.compare,'세 흐름은 고객·수량·돈을 받는 방식이 다릅니다.');
+{const s=sections.compare;top(s,'나에게 맞는 방식',P.titles.compare,'만드는 과정은 같고, 누구를 위해 만드느냐에 따라 진행 방식이 달라집니다.');
  s.append(columns(P.compare.head.map((h,i)=>i?P.flows[FLOW_IDS[i-1]].name:h),P.compare.rows));
  }
 
